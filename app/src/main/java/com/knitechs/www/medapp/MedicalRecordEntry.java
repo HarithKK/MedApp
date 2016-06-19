@@ -13,13 +13,13 @@ public class MedicalRecordEntry extends ActionBarActivity {
     EditText txtPatientCode;
     EditText txtName;
     EditText txtSubmissionDate;
-    EditText ConsultantCode;
+    EditText txtConsultantCode;
 
     EditText txtWBC;
     EditText txtRBC;
     EditText txtHB;
     EditText txtHTC;
-    EditText txtmcv;
+    EditText txtMCV;
     EditText txtMCH;
     EditText txtMCHC;
     EditText txtRDW;
@@ -65,28 +65,28 @@ public class MedicalRecordEntry extends ActionBarActivity {
          *  Assigns
          */
 
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtName =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_record_code);
+        txtName =(EditText)findViewById(R.id.txt_medical_record_patient_name);
+        txtSubmissionDate =(EditText)findViewById(R.id.txt_medical_record_submission_date);
+        txtConsultantCode =(EditText)findViewById(R.id.txt_medical_record_consultant_code);
 
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtWBC =(EditText)findViewById(R.id.txt_medical_record_WBC_count);
+        txtRBC =(EditText)findViewById(R.id.txt_medical_record_RBC_count);
+        txtHB =(EditText)findViewById(R.id.txt_medical_record_HB_count);
+        txtHTC =(EditText)findViewById(R.id.txt_medical_record_HTC_count);
+        txtMCV =(EditText)findViewById(R.id.txt_medical_record_MCV_count);
+        txtMCH =(EditText)findViewById(R.id.txt_medical_record_MCH_count);
+        txtMCHC =(EditText)findViewById(R.id.txt_medical_record_MCHC_count);
+        txtRDW =(EditText)findViewById(R.id.txt_medical_record_RDW_count);
+        txtCBC =(EditText)findViewById(R.id.txt_medical_record_CBC_count);
+        txtReticulocyte =(EditText)findViewById(R.id.txt_medical_record_reticulocyte_count);
+        txtPlatelet =(EditText)findViewById(R.id.txt_medical_record_Platelet_count);
 
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
-        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtheight =(EditText)findViewById(R.id.txt_medical_record_patient_height);
+        txtwaight =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtBP =(EditText)findViewById(R.id.txt_medical_record_patient_bp);
+        txtHR =(EditText)findViewById(R.id.txt_medical_record_patient_hr);
+        txtAC =(EditText)findViewById(R.id.txt_medical_record_patient_alcohol);
 
 
 
