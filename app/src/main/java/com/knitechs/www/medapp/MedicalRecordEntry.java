@@ -1,17 +1,96 @@
 package com.knitechs.www.medapp;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TabHost;
 
 
 public class MedicalRecordEntry extends ActionBarActivity {
+
+    EditText txtPatientCode;
+    EditText txtName;
+    EditText txtSubmissionDate;
+    EditText ConsultantCode;
+
+    EditText txtWBC;
+    EditText txtRBC;
+    EditText txtHB;
+    EditText txtHTC;
+    EditText txtmcv;
+    EditText txtMCH;
+    EditText txtMCHC;
+    EditText txtRDW;
+    EditText txtCBC;
+    EditText txtReticulocyte;
+    EditText txtPlatelet;
+
+    EditText txtheight;
+    EditText txtwaight;
+    EditText txtBP;
+    EditText txtHR;
+    EditText txtAC;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medical_record_entry);
+
+        /**
+         * crete the tab space
+         */
+
+        TabHost tabHost = (TabHost)findViewById(R.id.tabHostPatientEnter);
+        tabHost.setup();
+
+        TabHost.TabSpec sp_genaral = tabHost.newTabSpec("Genral");
+        sp_genaral.setIndicator("Genral");
+        sp_genaral.setContent(R.id.layout_genaral);
+        tabHost.addTab(sp_genaral);
+
+        TabHost.TabSpec sp_blood = tabHost.newTabSpec("Blood_report");
+        sp_blood.setIndicator("Blood Report");
+        sp_blood.setContent(R.id.layout_blood_report);
+        tabHost.addTab(sp_blood);
+
+        TabHost.TabSpec sp_other= tabHost.newTabSpec("other");
+        sp_other.setIndicator("Other");
+        sp_other.setContent(R.id.layout_other);
+        tabHost.addTab(sp_other);
+
+        /**
+         *  Assigns
+         */
+
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtName =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+        txtPatientCode =(EditText)findViewById(R.id.txt_medical_record_patient_waight);
+
+
+
+
     }
 
 
