@@ -282,7 +282,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="80dp"
                     android:text="Cancel"
-                    android:id="@+id/cmdCancel"
+                    android:id="@+id/cmd_patient_details_cancel"
                     android:layout_weight="0.50"
                     android:textSize="@dimen/abc_text_size_large_material"
                     android:gravity="center" />

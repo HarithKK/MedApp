@@ -31,7 +31,7 @@ import java.util.HashMap;
 
 public class PatientDetails extends ActionBarActivity {
 
-    Button cmdSave;
+    Button cmdSave,cmdCancel;
 
     EditText rec_code;
     EditText fullname;
@@ -113,6 +113,9 @@ public class PatientDetails extends ActionBarActivity {
 
             }
         });
+
+        cmdCancel=(Button)findViewById(R.id.cmdCancel);
+
     }
 
 
