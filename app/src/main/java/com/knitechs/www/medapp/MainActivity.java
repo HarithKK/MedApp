@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.knitechs.www.medapp.actor.Patient;
 import com.knitechs.www.medapp.core.JSONParser;
@@ -35,7 +36,6 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
 
-
         Button login = (Button)findViewById(R.id.cmdLogin);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,9 +48,11 @@ public class MainActivity extends ActionBarActivity {
         cmdsend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                EditText ed=(EditText)findViewById(R.id.txtMainED);
+                EditText et=(EditText)findViewById(R.id.txtMainTime);
+                new DateTimeDialog(MainActivity.this,ed,et);
 
 
-                new CreateNewProduct().execute();
 
             }
         });

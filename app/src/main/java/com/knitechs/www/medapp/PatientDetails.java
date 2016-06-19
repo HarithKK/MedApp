@@ -84,7 +84,7 @@ public class PatientDetails extends ActionBarActivity {
         }
 
 
-        cmdSave = (Button)findViewById(R.id.cmdSave);
+        cmdSave = (Button)findViewById(R.id.cmd_patient_details_save);
         cmdSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,7 +114,15 @@ public class PatientDetails extends ActionBarActivity {
             }
         });
 
-        cmdCancel=(Button)findViewById(R.id.cmdCancel);
+        cmdCancel=(Button)findViewById(R.id.cmd_patient_details_cancel);
+        cmdCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(PatientDetails.this,PatientActivity.class);
+                PatientDetails.this.finish();
+                PatientDetails.this.startActivity(i);
+            }
+        });
 
     }
 
