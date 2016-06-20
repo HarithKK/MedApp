@@ -50,7 +50,7 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View view) {
                 EditText ed=(EditText)findViewById(R.id.txtMainED);
                 EditText et=(EditText)findViewById(R.id.txtMainTime);
-                new DateTimeDialog(MainActivity.this,ed,et);
+                new DateTimeDialog(MainActivity.this,ed,et,ed);
 
 
 

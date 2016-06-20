@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.knitechs.www.medapp.actor.Patient;
 import com.knitechs.www.medapp.core.JSONParser;
 import com.knitechs.www.medapp.core.PDialog;
+import com.knitechs.www.medapp.core.URLs;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -79,7 +80,7 @@ public class PatientDetails extends ActionBarActivity {
         if(operation.contains("update")){
             pt= new Patient();
             pt.setRecordCode(i.getStringExtra(reco_code).trim());
-            reciver_url ="get_patient_details.php";
+            reciver_url = URLs.get_patient_url;
             new GetPatientDetails().execute();
         }
 
@@ -106,7 +107,7 @@ public class PatientDetails extends ActionBarActivity {
 
                 parameters =pt.setPatientDataToHashMap();
                 parameters.put("ops",operation);
-                sender_url="set_patient_details.php";
+                sender_url=URLs.set_patient_url;
                 success_message="Data Saved";
                 String p_message="Data Saving";
                 new InsertPatient().execute();
@@ -163,7 +164,7 @@ public class PatientDetails extends ActionBarActivity {
         }
 
         /**
-         * Creating product
+         * Creating patient
          * */
         protected String doInBackground(String... args) {
 
@@ -204,8 +205,9 @@ public class PatientDetails extends ActionBarActivity {
                 gardian_name.setText("");
                 gardian_tele.setText("");
                 gender.setSelection(0);
-                processCompleted=false;
+
             }
+            processCompleted=false;
         }
 
     }

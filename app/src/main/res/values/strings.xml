@@ -16,6 +16,10 @@
         <item>None</item>
     </string-array>
 
+    <string-array name="bool">
+        <item>True</item>
+        <item>False</item>
+    </string-array>
     <string name="title_activity_patient">PatientActivity</string>
 
 </resources>

@@ -99,7 +99,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_weight="0.5"
                     android:text="Save"
-                    android:id="@+id/cmd_medical_record_search_p"/>
+                    android:id="@+id/cmd_medical_record_save"/>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -109,6 +109,7 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_weight="0.5"
+                    android:id="@+id/cmd_medical_record_cancel"
                     android:text="Cancel" />
             </LinearLayout>
         </TableRow>
