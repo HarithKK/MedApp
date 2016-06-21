@@ -15,11 +15,12 @@
         <item>Female</item>
         <item>None</item>
     </string-array>
-
     <string-array name="bool">
         <item>True</item>
         <item>False</item>
     </string-array>
+
     <string name="title_activity_patient">PatientActivity</string>
+    <string name="title_activity_patient_medical_history">patient_medical_history</string>
 
 </resources>

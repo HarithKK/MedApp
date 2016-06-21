@@ -36,6 +36,10 @@
             android:name=".PatientActivity"
             android:label="@string/title_activity_patient" >
         </activity>
+        <activity
+            android:name=".PatientMedicalHistory"
+            android:label="@string/title_activity_patient_medical_history" >
+        </activity>
     </application>
 
 </manifest>

@@ -11,17 +11,20 @@ import com.knitechs.www.medapp.buttonhandler.ButtonFactory;
 
 public class MainForm extends ActionBarActivity {
 
-    ImageButton cmdAddMediclRecord,cmdPatientInfor;
+    ImageButton cmdAddMedicalRecord,cmdPatientInfor,cmdMedicalRecordHistory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_form);
 
-        cmdAddMediclRecord = (ImageButton)findViewById(R.id.cmd_add_medical_record);
-        ButtonFactory.getButton(cmdAddMediclRecord, MainForm.this);
+        cmdAddMedicalRecord = (ImageButton)findViewById(R.id.cmd_add_medical_record);
+        ButtonFactory.getButton(cmdAddMedicalRecord, MainForm.this);
 
         cmdPatientInfor =(ImageButton)findViewById(R.id.cmd_patient_infor);
         ButtonFactory.getButton(cmdPatientInfor,MainForm.this);
+
+        cmdMedicalRecordHistory =(ImageButton)findViewById(R.id.cmd_patient_medical_history);
+        ButtonFactory.getButton(cmdMedicalRecordHistory,MainForm.this);
 
     }
 
