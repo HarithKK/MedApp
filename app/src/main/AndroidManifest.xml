@@ -40,6 +40,10 @@
             android:name=".PatientMedicalHistory"
             android:label="@string/title_activity_patient_medical_history" >
         </activity>
+        <activity
+            android:name=".SprederationList"
+            android:label="@string/title_activity_sprederation_list" >
+        </activity>
     </application>
 
 </manifest>
