@@ -131,6 +131,35 @@
                        android:textSize="@dimen/abc_text_size_large_material"
                        android:layout_marginBottom="20dp" />
 
+                   <!-- Home town -->
+                   <TextView
+                       android:layout_width="fill_parent"
+                       android:layout_height="wrap_content"
+                       android:textAppearance="?android:attr/textAppearanceMedium"
+                       android:text="Address"
+                       android:id="@+id/lblHometown"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginLeft="10dp"
+                       android:layout_gravity="center"
+                       android:layout_weight="0.03"
+                       android:textColor="@color/background_material_light"/>
+
+                   <EditText
+                       android:layout_width="fill_parent"
+                       android:layout_height="50dp"
+                       android:inputType="textMultiLine|textPersonName"
+                       android:ems="10"
+                       android:id="@+id/txtHomeTown"
+                       android:layout_marginTop="15dp"
+                       android:layout_marginLeft="15dp"
+                       android:layout_marginRight="10dp"
+                       android:layout_gravity="center"
+                       android:background="@color/background_floating_material_light"
+                       android:textColor="@color/background_floating_material_dark"
+                       android:layout_weight="0.03"
+                       android:textSize="@dimen/abc_text_size_large_material"
+                       android:layout_marginBottom="20dp" />
+
                    <!-- Patient Contact Number-->
                    <TextView
                        android:layout_width="fill_parent"

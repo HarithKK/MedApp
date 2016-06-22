@@ -37,6 +37,7 @@ public class PatientDetails extends ActionBarActivity {
     EditText rec_code;
     EditText fullname;
     EditText address;
+    EditText hometown;
     EditText telephone;
     EditText gardian_name;
     EditText gardian_tele;
@@ -66,6 +67,7 @@ public class PatientDetails extends ActionBarActivity {
         rec_code =(EditText) findViewById(R.id.txtPatientRecordCode);
         fullname=(EditText) findViewById(R.id.txtFullName);
         address = (EditText) findViewById(R.id.txtAddress);
+        hometown=(EditText)findViewById(R.id.txtHomeTown);
         telephone = (EditText) findViewById(R.id.txtTelepphoneNumber);
         gardian_name=(EditText) findViewById(R.id.txtGardianName);
         gardian_tele = (EditText) findViewById(R.id.txtGardianContactNumber);
@@ -97,6 +99,7 @@ public class PatientDetails extends ActionBarActivity {
                 pt.setRecordCode(rec_code.getText().toString());
                 pt.setName(fullname.getText().toString());
                 pt.setAddress(address.getText().toString());
+                pt.setHometown(hometown.getText().toString());
                 pt.setTelephone(telephone.getText().toString());
                 pt.setGardianName(gardian_name.getText().toString());
                 pt.setGardianTelephone(gardian_tele.getText().toString());
@@ -201,6 +204,7 @@ public class PatientDetails extends ActionBarActivity {
                 rec_code.setText("");
                 fullname.setText("");
                 address.setText("");
+                hometown.setText("");
                 telephone.setText("");
                 gardian_name.setText("");
                 gardian_tele.setText("");
@@ -275,6 +279,7 @@ public class PatientDetails extends ActionBarActivity {
                     rec_code.setText(pt.getRecordCode());
                     fullname.setText(pt.getName());
                     address.setText(pt.getAddress());
+                    hometown.setText(pt.getHometown());
                     telephone.setText(pt.getTelephone());
                     gardian_name.setText(pt.getGardianName());
                     gardian_tele.setText(pt.getGardianTelephone());

@@ -73,6 +73,7 @@ public class MedicalRecordEntry extends ActionBarActivity {
     private MedicalRecord medicalRecord;
     TabHost tabHost;
     private String Message;
+    private boolean isEditable=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,6 +138,36 @@ public class MedicalRecordEntry extends ActionBarActivity {
 
         txtConsultantCode.setText(UserDetails.getInstance().getUserCode());
 
+        try {
+            Intent intent=getIntent();
+            if(!intent.getExtras().isEmpty()){
+                String recordrd_date = intent.getStringExtra("PARAMETER_DATE").replace("-","/");         // get the parameter date nd id passed by the medical history
+                String rec_code = intent.getStringExtra("PARAMETER_REC_CODE");
+
+                medicalRecord = new MedicalRecord();
+                medicalRecord.setPatientRegCode(rec_code);
+                try {
+                    medicalRecord.setSubmissionDate(recordrd_date);
+                    medicalRecord.setSubmissionTime(recordrd_date);
+
+                    cmdSearch.setVisibility(View.INVISIBLE);
+                    cmdSelectDate.setVisibility(View.INVISIBLE);
+                    cmdSave.setVisibility(View.INVISIBLE);
+                    isEditable=false;
+                    EditText ed[]= new EditText[]{txtPatientCode,txtName,txtSubmissionDate,txtSubmissionTime,txtConsultantCode,txtWBC,txtRBC,txtHB,txtHTC,txtMCV,txtMCH,txtMCHC,txtRDW,txtCBC,txtReticulocyte,txtPlatelet,txtheight,txtwaight,txtBP,txtHR,txtAC};
+                    for(EditText e:ed){
+                        e.setEnabled(false);
+                    }
+
+                    new GetMedicalRecord().execute();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         /**
          * serch patient code
          */
@@ -157,7 +188,9 @@ public class MedicalRecordEntry extends ActionBarActivity {
             public void onClick(View view) {
                 Intent i= new Intent(MedicalRecordEntry.this,MainForm.class);
                 finish();
-                startActivity(i);
+                if(isEditable){
+                    startActivity(i);
+                }
             }
         });
 
@@ -398,5 +431,99 @@ public class MedicalRecordEntry extends ActionBarActivity {
 
         }
 
+    /**
+     * get the existant report where REC_CODE = selected code & recorded date time
+     *
+     */
+
+    class GetMedicalRecord extends AsyncTask<String, String, String> {
+
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog= new PDialog(MedicalRecordEntry.this,"Fetching...");
+            pDialog.show();
+        }
+
+        /**
+         * Getting product details in background thread
+         * */
+        protected String doInBackground(String... params) {
+
+            int success;
+            try {
+
+                parameters= new HashMap<>();
+                parameters.put("REC_CODE",medicalRecord.getPatientRegCode());
+                parameters.put("S_DATE",medicalRecord.getSubmissionDateString());
+                parameters.put("S_TIME",medicalRecord.getSubmissionTimeString());
+
+                JSONObject json = jsonParser.makeHttpRequest(URLs.get_medicl_record, "GET", parameters);
+
+                // check your log for json response
+                Log.d("List Loaded", json.toString());
+
+                success = json.getInt("success");
+                Message=json.getString("message");
+                if (success == 1) {
+                    JSONArray jsonArray = json.getJSONArray("medicalrecord"); // JSON Array
+                    JSONpatientObject = jsonArray.getJSONObject(0);
+                }else{
+                }
+            } catch (Exception e) {
+
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog once got all details
+            pDialog.dismiss();
+            try {
+                medicalRecord.setPatientMedicalRecord(JSONpatientObject);
+
+                /**
+                 * set medical record to View
+                 */
+
+                txtPatientCode.setText(medicalRecord.getPatientRegCode());
+                txtName.setText(medicalRecord.getName());
+                txtSubmissionDate.setText(medicalRecord.getSubmissionDateString());
+                txtSubmissionTime.setText(medicalRecord.getSubmissionTimeString());
+                txtConsultantCode.setText(medicalRecord.getConsultantCode());
+
+                txtWBC.setText(String.valueOf(medicalRecord.getWbc()));
+                txtRBC.setText(String.valueOf(medicalRecord.getRbc()));
+                txtHB.setText(String.valueOf(medicalRecord.getHbc()));
+                txtHTC.setText(String.valueOf(medicalRecord.getHtc()));
+                txtMCV.setText(String.valueOf(medicalRecord.getMcv()));
+                txtMCH.setText(String.valueOf(medicalRecord.getMch()));
+                txtMCHC.setText(String.valueOf(medicalRecord.getMchc()));
+                txtRDW.setText(String.valueOf(medicalRecord.getRdw()));
+                txtCBC.setText(String.valueOf(medicalRecord.getCbc()));
+                txtReticulocyte.setText(String.valueOf(medicalRecord.getReticulocyte()));
+                txtPlatelet.setText(String.valueOf(medicalRecord.getPlatelet()));
+
+                txtheight.setText(String.valueOf(medicalRecord.getHeight()));
+                txtwaight.setText(String.valueOf(medicalRecord.getWaight()));
+                txtBP.setText(String.valueOf(medicalRecord.getBloodpresure()));
+                txtHR.setText(String.valueOf(medicalRecord.getHeartRate()));
+                txtAC.setText(String.valueOf(medicalRecord.getAlcoholConsumption()));
+
+            } catch (Exception e) {
+                Toast.makeText(MedicalRecordEntry.this,Message,Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+                Log.d("------------ERROR",e.getMessage());
+            }
+        }
+    }
 
     }

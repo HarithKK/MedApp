@@ -20,6 +20,7 @@ public class Patient {
     private String recordCode;
     private String Name;
     private String Address;
+    private String hometown;
     private String telephone;
     private String gender;
     private String GardianName;
@@ -130,6 +131,7 @@ public class Patient {
         params.put("REC_CODE",getRecordCode());
         params.put("NAME",getName());
         params.put("ADDRESS",getAddress());
+        params.put("HOMETOWN",getHometown());
         params.put("GENDER",getGender());
         params.put("GUARDIAN_NAME",getGardianName());
         params.put("GUARDIAN_TP",getGardianTelephone());
@@ -147,6 +149,7 @@ public class Patient {
             setRecordCode(obj.getString("REC_CODE"));
             setName(obj.getString("NAME"));
             setAddress(obj.getString("ADDRESS"));
+            setHometown(obj.getString("HOMETOWN"));
             setTelephone(obj.getString("TELEPHONE"));
             setGender(obj.getString("GENDER"));
             Log.d("GENDEr : ",getGender());
@@ -164,5 +167,11 @@ public class Patient {
     }
 
 
+    public String getHometown() {
+        return hometown;
+    }
 
+    public void setHometown(String hometown) {
+        this.hometown = hometown;
+    }
 }
