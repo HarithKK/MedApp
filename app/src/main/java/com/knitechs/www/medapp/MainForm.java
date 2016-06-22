@@ -1,7 +1,7 @@
 package com.knitechs.www.medapp;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
@@ -9,9 +9,9 @@ import android.widget.ImageButton;
 import com.knitechs.www.medapp.buttonhandler.ButtonFactory;
 
 
-public class MainForm extends ActionBarActivity {
+public class MainForm extends Activity {
 
-    ImageButton cmdAddMedicalRecord,cmdPatientInfor,cmdMedicalRecordHistory;
+    ImageButton cmdAddMedicalRecord,cmdPatientInfor,cmdMedicalRecordHistory,cmdMapView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,9 @@ public class MainForm extends ActionBarActivity {
 
         cmdMedicalRecordHistory =(ImageButton)findViewById(R.id.cmd_patient_medical_history);
         ButtonFactory.getButton(cmdMedicalRecordHistory,MainForm.this);
+
+        cmdMapView =(ImageButton)findViewById(R.id.cmd_map_view);
+        ButtonFactory.getButton(cmdMapView,MainForm.this);
 
     }
 

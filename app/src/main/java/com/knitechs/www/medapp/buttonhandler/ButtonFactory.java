@@ -7,6 +7,7 @@ import com.knitechs.www.medapp.MedicalRecordEntry;
 import com.knitechs.www.medapp.PatientActivity;
 import com.knitechs.www.medapp.PatientMedicalHistory;
 import com.knitechs.www.medapp.R;
+import com.knitechs.www.medapp.SprederationList;
 import com.knitechs.www.medapp.buttonhandler.Buttons.MainFormButtonHandler;
 
 /**
@@ -18,6 +19,7 @@ public class ButtonFactory {
             case R.id.cmd_add_medical_record: new MainFormButtonHandler(im,currentcontext, MedicalRecordEntry.class);break;
             case R.id.cmd_patient_infor: new MainFormButtonHandler(im,currentcontext, PatientActivity.class);break;
             case R.id.cmd_patient_medical_history: new MainFormButtonHandler(im,currentcontext, PatientMedicalHistory.class);break;
+            case R.id.cmd_map_view: new MainFormButtonHandler(im,currentcontext, SprederationList.class);break;
         }
     }
 }

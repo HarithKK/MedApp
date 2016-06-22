@@ -23,5 +23,6 @@
     <string name="title_activity_patient">PatientActivity</string>
     <string name="title_activity_patient_medical_history">patient_medical_history</string>
     <string name="title_activity_sprederation_list">SprederationList</string>
+    <string name="title_activity_sprederation_map">Map</string>
 
 </resources>

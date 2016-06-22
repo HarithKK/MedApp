@@ -1,11 +1,11 @@
 package com.knitechs.www.medapp;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,7 +31,7 @@ import java.text.ParseException;
 import java.util.HashMap;
 
 
-public class MedicalRecordEntry extends ActionBarActivity {
+public class MedicalRecordEntry extends Activity {
 
     EditText txtPatientCode;
     EditText txtName;

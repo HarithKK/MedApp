@@ -1,10 +1,10 @@
 package com.knitechs.www.medapp;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 
-public class PatientActivity extends ActionBarActivity {
+public class PatientActivity extends Activity {
 
     ImageButton cmdAdd,cmdSearch;
 
