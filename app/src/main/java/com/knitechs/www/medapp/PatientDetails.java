@@ -1,13 +1,16 @@
 package com.knitechs.www.medapp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -18,6 +21,7 @@ import android.widget.Toast;
 import com.knitechs.www.medapp.actor.Patient;
 import com.knitechs.www.medapp.core.JSONParser;
 import com.knitechs.www.medapp.core.PDialog;
+import com.knitechs.www.medapp.core.TownList;
 import com.knitechs.www.medapp.core.URLs;
 
 import org.json.JSONArray;
@@ -57,6 +61,9 @@ public class PatientDetails extends Activity {
     private boolean processCompleted=false;
     private static final String reco_code="rec_code";
     private static String operation;
+    CharSequence []ch;
+    public PatientDetails() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +92,28 @@ public class PatientDetails extends Activity {
             new GetPatientDetails().execute();
         }
 
+        hometown.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(PatientDetails.this);
+                TownList[] boo= TownList.values();
+                ch=new CharSequence[boo.length];
+                int i=0;
+                for(TownList t:boo){
+                    ch[i++]=t.name();
+                }
+                builder.setItems(ch,new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int j) {
+                        hometown.setText(ch[j].toString().replace('_', ' '));
+                    }
+                });
+
+                builder.show();
+                return false;
+            }
+        });
 
         cmdSave = (Button)findViewById(R.id.cmd_patient_details_save);
         cmdSave.setOnClickListener(new View.OnClickListener() {

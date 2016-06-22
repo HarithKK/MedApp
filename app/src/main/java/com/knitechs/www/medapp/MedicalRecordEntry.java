@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -209,10 +210,9 @@ public class MedicalRecordEntry extends Activity {
          * select Alcohol consumption
          */
 
-        txtAC.setOnClickListener(new View.OnClickListener() {
+        txtAC.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-
+            public boolean onTouch(View view, MotionEvent motionEvent) {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(MedicalRecordEntry.this);
 
                 builder.setItems(R.array.bool,new DialogInterface.OnClickListener() {
@@ -225,9 +225,9 @@ public class MedicalRecordEntry extends Activity {
                 });
 
                 builder.show();
+                return false;
             }
         });
-
         /**
          * save button
          */
