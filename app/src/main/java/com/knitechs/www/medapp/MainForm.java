@@ -10,17 +10,19 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.knitechs.www.medapp.buttonhandler.ButtonFactory;
+import com.knitechs.www.medapp.core.SQLLiteData;
 
 
 public class MainForm extends Activity {
 
-    ImageButton cmdAddMedicalRecord,cmdPatientInfor,cmdMedicalRecordHistory,cmdMapView,cmdChatBox;
+    ImageButton cmdAddMedicalRecord,cmdPatientInfor,cmdMedicalRecordHistory,cmdMapView,cmdChatBox,cmdLoggedout;
     private BroadcastReceiver broadcastReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,16 @@ public class MainForm extends Activity {
         cmdChatBox =(ImageButton)findViewById(R.id.cmd_chatbox);
         ButtonFactory.getButton(cmdChatBox,MainForm.this);
 
+        cmdLoggedout =(ImageButton)findViewById(R.id.cmd_loggedout);
+        cmdLoggedout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SQLLiteData(MainForm.this).loggedout();
+                Intent intent = new Intent(MainForm.this,MainActivity.class);
+                finish();
+                startActivity(intent);
+            }
+        });
 
         try {
             broadcastReceiver = new BroadcastReceiver() {
