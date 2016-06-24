@@ -3,6 +3,7 @@ package com.knitechs.www.medapp.buttonhandler;
 import android.content.Context;
 import android.widget.ImageButton;
 
+import com.knitechs.www.medapp.ChatMessanger;
 import com.knitechs.www.medapp.MedicalRecordEntry;
 import com.knitechs.www.medapp.PatientActivity;
 import com.knitechs.www.medapp.PatientMedicalHistory;
@@ -20,6 +21,7 @@ public class ButtonFactory {
             case R.id.cmd_patient_infor: new MainFormButtonHandler(im,currentcontext, PatientActivity.class);break;
             case R.id.cmd_patient_medical_history: new MainFormButtonHandler(im,currentcontext, PatientMedicalHistory.class);break;
             case R.id.cmd_map_view: new MainFormButtonHandler(im,currentcontext, SprederationList.class);break;
+            case R.id.cmd_chatbox: new MainFormButtonHandler(im,currentcontext, ChatMessanger.class);break;
         }
     }
 }

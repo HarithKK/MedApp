@@ -20,7 +20,7 @@ import com.knitechs.www.medapp.buttonhandler.ButtonFactory;
 
 public class MainForm extends Activity {
 
-    ImageButton cmdAddMedicalRecord,cmdPatientInfor,cmdMedicalRecordHistory,cmdMapView;
+    ImageButton cmdAddMedicalRecord,cmdPatientInfor,cmdMedicalRecordHistory,cmdMapView,cmdChatBox;
     private BroadcastReceiver broadcastReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,33 +39,40 @@ public class MainForm extends Activity {
         cmdMapView =(ImageButton)findViewById(R.id.cmd_map_view);
         ButtonFactory.getButton(cmdMapView,MainForm.this);
 
+        cmdChatBox =(ImageButton)findViewById(R.id.cmd_chatbox);
+        ButtonFactory.getButton(cmdChatBox,MainForm.this);
 
-        broadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                if(intent.getAction().endsWith(GCMRegistrationIntentService.REGISTRATION_SUCCESS)){
-                    String toekn = intent.getStringExtra("token");
-                    //Toast.makeText(getApplicationContext(), toekn, Toast.LENGTH_SHORT).show();
-                }else if(intent.getAction().endsWith(GCMRegistrationIntentService.REGISTRTION_ERROR)){
-                    Toast.makeText(getApplicationContext(),"ERROR",Toast.LENGTH_SHORT).show();
-                }else{
 
+        try {
+            broadcastReceiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    if(intent.getAction().endsWith(GCMRegistrationIntentService.REGISTRATION_SUCCESS)){
+                        String toekn = intent.getStringExtra("token");
+                        //Toast.makeText(getApplicationContext(), toekn, Toast.LENGTH_SHORT).show();
+                    }else if(intent.getAction().endsWith(GCMRegistrationIntentService.REGISTRTION_ERROR)){
+                        Toast.makeText(getApplicationContext(),"ERROR",Toast.LENGTH_SHORT).show();
+                    }else{
+
+                    }
                 }
-            }
-        };
+            };
 
-        // check connection in installed
-        int requestCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
-        if(ConnectionResult.SUCCESS != requestCode){
-            if(GooglePlayServicesUtil.isUserRecoverableError(requestCode)){
-                Toast.makeText(getApplicationContext(),"GCM Not Installed",Toast.LENGTH_SHORT).show();
+            // check connection in installed
+            int requestCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
+            if(ConnectionResult.SUCCESS != requestCode){
+                if(GooglePlayServicesUtil.isUserRecoverableError(requestCode)){
+                    Toast.makeText(getApplicationContext(),"GCM Not Installed",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(),"GCM Not Working",Toast.LENGTH_SHORT).show();
+                }
             }else{
-                Toast.makeText(getApplicationContext(),"GCM Not Working",Toast.LENGTH_SHORT).show();
+                Log.d("---------------GCM Strtted","");
+                Intent intent =new Intent(this,GCMRegistrationIntentService.class);
+                startService(intent);
             }
-        }else{
-            Log.d("---------------GCM Strtted","");
-            Intent intent =new Intent(this,GCMRegistrationIntentService.class);
-            startService(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

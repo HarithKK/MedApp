@@ -1,12 +1,12 @@
 package com.knitechs.www.medapp;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,7 +33,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 
-public class PatientDetails extends Activity {
+public class PatientDetails extends ActionBarActivity {
 
     Button cmdSave,cmdCancel;
 
@@ -50,7 +50,7 @@ public class PatientDetails extends Activity {
     private String sender_url ;              // sender URL
     private String reciver_url;
     private ProgressDialog pDialog;                 // process dialog for when executing
-    private Activity currentActivity;               // current activity
+
     private String success_message;                 // success message when the dat inserted
     private HashMap<String,String> parameters;      // map for data for json object
     JSONParser jsonParser = JSONParser.getInstance();       // json parser

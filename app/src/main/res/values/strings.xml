@@ -20,9 +20,10 @@
         <item>False</item>
     </string-array>
 
-    <string name="title_activity_patient">PatientActivity</string>
-    <string name="title_activity_patient_medical_history">patient_medical_history</string>
-    <string name="title_activity_sprederation_list">SprederationList</string>
-    <string name="title_activity_sprederation_map">Map</string>
+    <string name="title_activity_patient"></string>
+    <string name="title_activity_patient_medical_history">Patient Medical History</string>
+    <string name="title_activity_sprederation_list"></string>
+    <string name="title_activity_sprederation_map"></string>
+    <string name="title_activity_chat_messanger">Messanger</string>
 
 </resources>
