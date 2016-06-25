@@ -30,7 +30,7 @@ public class JSONParser {
     JSONObject jObj = null;         // Json object for create Json parsers
     StringBuilder sbParams;         // string for create parameter url
     String paramsString;            // sending parameter url string
-    private String ipaddress ="http://192.168.8.101/healthcare1/php/service_classes/";  //IP address of theserver
+    private String ipaddress ="http://healthcare.knitechs.com/php/service_classes/";  //IP address of theserver
 
     /**
      * @param url_path    url for the servenr php service class  without the ip (folder/pages)

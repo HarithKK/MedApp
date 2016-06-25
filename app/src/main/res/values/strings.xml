@@ -25,5 +25,8 @@
     <string name="title_activity_sprederation_list"></string>
     <string name="title_activity_sprederation_map"></string>
     <string name="title_activity_chat_messanger">Messanger</string>
+    <string name="title_activity_splash">MedApp</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 </resources>
