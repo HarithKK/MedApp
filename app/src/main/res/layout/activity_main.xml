@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <TableRow
-            android:layout_weight="0.2"
+            android:layout_weight="0.8"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageView
@@ -27,7 +27,7 @@
         </TableRow>
 
         <TableRow
-           android:layout_weight="0.8"
+           android:layout_weight="0.2"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
@@ -67,7 +67,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginBottom="10dp"
                     android:selectAllOnFocus="true"
                     />
 
@@ -75,7 +75,7 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
 
                     android:weightSum="1"
                     android:layout_marginLeft="10dp"

@@ -2,6 +2,8 @@ package com.knitechs.www.medapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -52,6 +54,8 @@ public class MainActivity extends Activity {
         cmdLogin=(Button)findViewById(R.id.cmd_login);
         cmdCancel=(Button)findViewById(R.id.cmd_login_cancel);
 
+
+
         if(db.isLogged()){
            UserDetails.getInstance().setUserCode(db.getLoggerCode());
            UserDetails.getInstance().setUserName(db.getLoggerUserName());
@@ -86,7 +90,13 @@ public class MainActivity extends Activity {
                 parameters.put("USER_NAME",UserDetails.getInstance().getUserName());
                 parameters.put("PASSWORD",UserDetails.getInstance().getPassword());
 
-                new Login().execute();
+                if(!isNetworkAvailable()){
+                    Toast.makeText(MainActivity.this,"Internet Connection Error",Toast.LENGTH_LONG).show();
+
+                }else{
+                    new Login().execute();
+                }
+
             }
         });
     }
@@ -186,5 +196,10 @@ public class MainActivity extends Activity {
         }
     }
 
-
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(MainActivity.this.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 }

@@ -58,6 +58,8 @@ public class MedicalRecordEntry extends Activity {
     EditText txtBP;
     EditText txtHR;
     EditText txtAC;
+    EditText txtsuger;
+    EditText txtconsultantopenion;
 
     Button cmdSearch;
     Button cmdCancel;
@@ -131,6 +133,8 @@ public class MedicalRecordEntry extends Activity {
         txtBP =(EditText)findViewById(R.id.txt_medical_record_patient_bp);
         txtHR =(EditText)findViewById(R.id.txt_medical_record_patient_hr);
         txtAC =(EditText)findViewById(R.id.txt_medical_record_patient_alcohol);
+        txtsuger =(EditText)findViewById(R.id.txt_medical_record_patient_suger);
+        txtconsultantopenion=(EditText)findViewById(R.id.txt_medical_record_patient_consultant_opinion);
 
         cmdSave = (Button)findViewById(R.id.cmd_medical_record_save);
         cmdCancel=(Button)findViewById(R.id.cmd_medical_record_cancel);
@@ -155,7 +159,7 @@ public class MedicalRecordEntry extends Activity {
                     cmdSelectDate.setVisibility(View.INVISIBLE);
                     cmdSave.setVisibility(View.INVISIBLE);
                     isEditable=false;
-                    EditText ed[]= new EditText[]{txtPatientCode,txtName,txtSubmissionDate,txtSubmissionTime,txtConsultantCode,txtWBC,txtRBC,txtHB,txtHTC,txtMCV,txtMCH,txtMCHC,txtRDW,txtCBC,txtReticulocyte,txtPlatelet,txtheight,txtwaight,txtBP,txtHR,txtAC};
+                    EditText ed[]= new EditText[]{txtPatientCode,txtName,txtSubmissionDate,txtSubmissionTime,txtConsultantCode,txtWBC,txtRBC,txtHB,txtHTC,txtMCV,txtMCH,txtMCHC,txtRDW,txtCBC,txtReticulocyte,txtPlatelet,txtheight,txtwaight,txtBP,txtHR,txtAC,txtsuger,txtconsultantopenion};
                     for(EditText e:ed){
                         e.setEnabled(false);
                     }
@@ -266,6 +270,8 @@ public class MedicalRecordEntry extends Activity {
                     medicalRecord.setBloodpresure(txtBP.getText().toString());
                     medicalRecord.setHeartRate(txtHR.getText().toString());
                     medicalRecord.setAlcoholConsumption(txtAC.getText().toString());
+                    medicalRecord.setConsultantOpenion(txtconsultantopenion.getText().toString());
+                    medicalRecord.setSuger(txtsuger.getText().toString());
 
                     parameters = medicalRecord.setHashMap();
                     new SetMedicalReport().execute();
@@ -420,7 +426,7 @@ public class MedicalRecordEntry extends Activity {
                     Toast.makeText(getApplicationContext(),Message,Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getApplicationContext(),Message,Toast.LENGTH_SHORT).show();
-                    EditText ed[]= new EditText[]{txtPatientCode,txtName,txtSubmissionDate,txtSubmissionTime,txtWBC,txtRBC,txtHB,txtHTC,txtMCV,txtMCH,txtMCHC,txtRDW,txtCBC,txtReticulocyte,txtPlatelet,txtheight,txtwaight,txtBP,txtHR,txtAC};
+                    EditText ed[]= new EditText[]{txtPatientCode,txtName,txtSubmissionDate,txtSubmissionTime,txtWBC,txtRBC,txtHB,txtHTC,txtMCV,txtMCH,txtMCHC,txtRDW,txtCBC,txtReticulocyte,txtPlatelet,txtheight,txtwaight,txtBP,txtHR,txtAC,txtconsultantopenion,txtsuger};
                     for(EditText e:ed){
                         e.setText("");
                     }
@@ -517,6 +523,8 @@ public class MedicalRecordEntry extends Activity {
                 txtBP.setText(String.valueOf(medicalRecord.getBloodpresure()));
                 txtHR.setText(String.valueOf(medicalRecord.getHeartRate()));
                 txtAC.setText(String.valueOf(medicalRecord.getAlcoholConsumption()));
+                txtsuger.setText(String.valueOf(medicalRecord.getSuger()));
+                txtconsultantopenion.setText(medicalRecord.getConsultantOpenion());
 
             } catch (Exception e) {
                 Toast.makeText(MedicalRecordEntry.this,Message,Toast.LENGTH_SHORT).show();
